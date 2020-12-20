@@ -10,4 +10,14 @@
     -   Rank	Rating	Title
 - let the users pick the movie
   - details of the movies
-  -   summaries 
+  -   summaries, cast and more
+  -   
+  
+Classes
+1. Scraper
+- Scraping for the list
+- Scraping the individual movies
+2. Movies Class
+3. CLI
+- 
+- 
