@@ -10,3 +10,4 @@
     -   Rank	Rating	Title
 - let the users pick the movie
   - details of the movies
+  -   summaries 
