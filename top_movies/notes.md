@@ -13,3 +13,11 @@
   doc.css("ul.dropdown-menu li").each do |genres|
     puts genres.css("a").attribute("href").value
   end
+
+  *need to add basepath of https://www.rottentomatoes.com/
+4. code for the rank 
+  
+  doc.css(".table .bold").each do |rank|
+    puts rank.text.strip
+  end
+
