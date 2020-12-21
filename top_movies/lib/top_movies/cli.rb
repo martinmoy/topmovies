@@ -2,6 +2,8 @@ class TopMovies::CLI
 
   def call
     display_introduction
+    scrape_genres
+    display_genres
     display_instruction
     display_ranking 
   end
@@ -21,5 +23,22 @@ class TopMovies::CLI
     puts "Rank: 1 Title: Godfather"
     puts "Rank: 2 Title: Chicken"
   end
+  
+  
+  def get_page
+  Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
+  end 
+  
+  def scrape_genres
+    self.get_page.css("ul.dropdown-menu li")
+  end
+  
+  def display_genres
+    self.scrape_genres.each do |genres|
+      puts genres.css("a").text.strip
+    end
+  end
+  
+  
   
 end
