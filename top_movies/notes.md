@@ -21,3 +21,20 @@
     puts rank.text.strip
   end
 
+5. code for rating: Tomatometer rating
+  doc.css(".table .tMeterScore").each do |rating|
+   puts rating.text.strip
+  end
+
+
+6. code for the titles
+  doc.css(".table a").each do |title|
+    puts title.text.strip
+  end
+
+7. code for url of the titles
+  doc.css(".table a").each do |url|
+    puts url.attribute("href").text.strip
+  end
+
+*need to add basepath of https://www.rottentomatoes.com/
