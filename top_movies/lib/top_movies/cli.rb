@@ -34,8 +34,8 @@ class TopMovies::CLI
   end
   
   def display_genres
-    self.scrape_genres.each do |genres|
-      puts genres.css("a").text.strip
+    self.scrape_genres.each_with_index do |genres, index|
+      puts "#{index+1}." "#{genres.css("a").text.strip}"
     end
   end
   
