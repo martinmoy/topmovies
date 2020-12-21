@@ -7,8 +7,8 @@ class TopMovies::CLI
   end
   
   def display_introduction
-    puts "Welcome to the TOP 100 Movies"
-    puts "Which select the genre you want to view?"
+    puts "Welcome to the Top 100 Movies"
+    puts "Please select the genre you want to view?"
   end
   
   def display_instruction
