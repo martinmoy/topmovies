@@ -15,9 +15,9 @@ class TopMovies::CLI
   
   def display_instruction
     puts "Please input the number for the genre you want to view."
-    @input = gets.strip
-    if @input.to_i <= display_genres.length && @input.to_i > 0
-      puts "#{display_genres[@input.to_i]}"
+    @input = gets.strip.to_i
+      if @input.to_i > 0 && @input.to_i <= @genres.length
+        puts "#{@genres[@input - 1]}"
     else
       puts "No"
     end
@@ -31,15 +31,20 @@ class TopMovies::CLI
   
   
   def scrape_genres
-    @basepath ="https://www.rottentomatoes.com"
-    doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
-    doc.css("ul.dropdown-menu li")
+   # @basepath ="https://www.rottentomatoes.com"
+   # doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
+      #doc.css("ul.dropdown-menu li")
+      @genres = ["Action", "Adventure", "Mystery", "Cats"]
+    
   end
   
   def display_genres
-    scrape_genres.each.with_index(1) do |genres, index|
-      puts "#{index}." "#{genres.css("a").text.strip}"
-      puts "#{@basepath}#{genres.css("a").attribute("href").value}"
+   # scrape_genres.each.with_index(1) do |genres, index|
+  #    puts "#{index}." "#{genres.css("a").text.strip}"
+  #    puts "#{@basepath}#{genres.css("a").attribute("href").value}"
+   # end
+   @genres.each.with_index(1) do |genres, index|
+    puts "#{index}." "#{genres}"
     end
   end
   
