@@ -1,6 +1,7 @@
 require_relative  "../top_movies"
 require 'nokogiri'
 require 'open-uri'
+require 'pry'
 
 class TopMovies::Scraper
   
@@ -9,11 +10,18 @@ class TopMovies::Scraper
   end
   
   def self.scrape_genre
-    genre = self.get_page.css("ul.dropdown-menu li").each do |genres|
-    name = genres.css("a").text.strip
-    url = "https://www.rottentomatoes.com" + genres.css("a").attribute("href").value
-    
+      self.get_page.css("ul.dropdown-menu li").each do |genres|
+      genre = genres.css("a").text.strip
+      url = "https://www.rottentomatoes.com" + genres.css("a").attribute("href").value
+      TopMovies::Genres.new(genre, url)
     end
+  end
+  
+  def self.scrape_movies
+    
+    
+    
+      
   end
   
   
@@ -23,4 +31,5 @@ class TopMovies::Scraper
   
 end
 
-TopMovies::Scraper.scrape_genre_url
+TopMovies::Scraper.scrape_movies
+

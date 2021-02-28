@@ -31,16 +31,13 @@ class TopMovies::CLI
   
   
   def scrape_genres
-      @genres = ["Action", "Adventure", "Mystery", "Cats"]
+      @genres = TopMovies::Genres.all
+    
   end
   
   def display_genres
-   # scrape_genres.each.with_index(1) do |genres, index|
-  #    puts "#{index}." "#{genres.css("a").text.strip}"
-  #    puts "#{@basepath}#{genres.css("a").attribute("href").value}"
-   # end
    @genres.each.with_index(1) do |genres, index|
-    puts "#{index}." "#{genres}"
+    puts "#{index}." "#{genres.genre}"
     end
   end
   
