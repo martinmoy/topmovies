@@ -19,7 +19,7 @@ class TopMovies::CLI
       if @input.to_i > 0 && @input.to_i <= @genres.length
         puts "#{@genres[@input - 1]}"
     else
-      puts "No"
+      puts "Please input the number again"
     end
   end
   
@@ -31,11 +31,7 @@ class TopMovies::CLI
   
   
   def scrape_genres
-   # @basepath ="https://www.rottentomatoes.com"
-   # doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
-      #doc.css("ul.dropdown-menu li")
       @genres = ["Action", "Adventure", "Mystery", "Cats"]
-    
   end
   
   def display_genres

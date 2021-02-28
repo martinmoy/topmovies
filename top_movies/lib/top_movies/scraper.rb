@@ -10,16 +10,13 @@ class TopMovies::Scraper
   
   def self.scrape_genre
     genre = self.get_page.css("ul.dropdown-menu li").each do |genres|
-    puts genres.css("a").text.strip
+    name = genres.css("a").text.strip
+    url = "https://www.rottentomatoes.com" + genres.css("a").attribute("href").value
+    
     end
   end
   
   
-  def self.scrape_genre_url
-    genre_url = self.get_page.css("ul.dropdown-menu li").each do |genres|
-    puts  "https://www.rottentomatoes.com" + genres.css("a").attribute("href").value
-    end
-  end
   
   
   

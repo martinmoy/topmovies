@@ -13,6 +13,13 @@ class TopMovies::Movies
   end 
   
   
+  def self.all 
+    @@all
+  end
+  
+  
+  
+  
   
   
 end
