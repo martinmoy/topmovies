@@ -1,5 +1,5 @@
 class TopMovies::Movies
-  attr_accessor :title, :url, :rank, :rating, 
+  attr_accessor :title, :url, :rank, :rating
   @@movies = []
   
   def initialize (title=nil, url=nil, rank=nil, rating=nil )

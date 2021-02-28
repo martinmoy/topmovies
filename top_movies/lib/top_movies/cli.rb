@@ -5,6 +5,7 @@ class TopMovies::CLI
     scrape_genres
     display_genres
     display_instruction
+    scrape_movies
     display_movies
   
   end
@@ -36,9 +37,13 @@ class TopMovies::CLI
   end
   
   def display_genres
-   @genres.each.with_index(1) do |genres, index|
+    @genres.each.with_index(1) do |genres, index|
     puts "#{index}." "#{genres.name}"
     end
+  end
+  
+  def scrape_movies
+    @movies = TopMovies::Movies.all
   end
   
   def display_movies

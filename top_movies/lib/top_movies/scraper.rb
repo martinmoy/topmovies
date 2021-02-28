@@ -1,16 +1,11 @@
-require_relative  "../top_movies"
-require 'nokogiri'
-require 'open-uri'
-require 'pry'
 
 class TopMovies::Scraper
-  
-  def self.get_page
-    Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
-  end
+
   
   def self.scrape_genre
-      self.get_page.css("ul.dropdown-menu li").each do |genres|
+    get_page = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
+    
+    get_page.css("ul.dropdown-menu li").each do |genres|
         name = genres.css("a").text.strip
         url = "https://www.rottentomatoes.com" + genres.css("a").attribute("href").value
         TopMovies::Genres.new(name, url)
@@ -19,15 +14,15 @@ class TopMovies::Scraper
   
   def self.scrape_movies
       doc = Nokogiri::HTML(open(TopMovies::Genres.url))
-      
-      doc.css(.table).each do |movies|
+      doc.css(".table").each do |movies|
         rank = movies.css(".table .bold").text.strip
         rating = movies.css(".table .tMeterScore").text.strip
         title = movies.css(".table a").text.strip
         url = "https://www.rottentomatoes.com" + movies.css(".table a").attribute("href").text.strip
+        TopMovies::Movies.new(title, url, rank, rating)
       end
-      
-  end
+  
+ end
   
   
   
@@ -36,5 +31,4 @@ class TopMovies::Scraper
   
 end
 
-TopMovies::Scraper.scrape_movies
 
