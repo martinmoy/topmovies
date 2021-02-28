@@ -9,12 +9,21 @@ class TopMovies::Scraper
   end
   
   def self.scrape_genre
-    genre = self.get_page.css("ul.dropdown-menu li a").text
-    puts genre
-    
+    genre = self.get_page.css("ul.dropdown-menu li").each do |genres|
+    puts genres.css("a").text.strip
+    end
   end
+  
+  
+  def self.scrape_genre_url
+    genre_url = self.get_page.css("ul.dropdown-menu li").each do |genres|
+    puts  "https://www.rottentomatoes.com" + genres.css("a").attribute("href").value
+    end
+  end
+  
+  
   
   
 end
 
-TopMovies::Scraper.scrape_genre
+TopMovies::Scraper.scrape_genre_url
