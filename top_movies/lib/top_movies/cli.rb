@@ -37,7 +37,7 @@ class TopMovies::CLI
   
   def display_genres
    @genres.each.with_index(1) do |genres, index|
-    puts "#{index}." "#{genres.genre}"
+    puts "#{index}." "#{genres.name}"
     end
   end
   

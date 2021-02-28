@@ -1,10 +1,10 @@
 class TopMovies::Genres
-  attr_accessor :genre, :url
+  attr_accessor :name, :url
   
   @@genres =[]
   
-  def initialize (genre=nil, url=nil )
-    @genre = genre
+  def initialize (name=nil, url=nil )
+    @name = name
     @url = url
     save
   end 
