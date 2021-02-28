@@ -14,7 +14,8 @@ class TopMovies::Movies
   
   
   def self.all 
-    @@all
+    TopMovies::Scraper.scrape_movies if @@movies.empty?
+    @@movies
   end
   
   
