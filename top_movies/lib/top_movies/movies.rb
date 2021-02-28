@@ -1,21 +1,23 @@
 class TopMovies::Movies
-  attr_accessor :title, :url, :rank, :rating, :no_of_reviews
-  
+  attr_accessor :title, :url, :rank, :rating, 
   @@movies = []
   
-  def initialize (title=nil, url=nil, rank=nil, rating=nil, no_of_reviews=nil )
+  def initialize (title=nil, url=nil, rank=nil, rating=nil )
     @title = title
     @url = url
     @rank = rank
     @rating = rating
-    @no_of_reviews = no_of_reviews
-    @@movies << self
+    save
   end 
   
   
   def self.all 
     TopMovies::Scraper.scrape_movies if @@movies.empty?
     @@movies
+  end
+  
+  def save 
+    @@movies << self
   end
   
   

@@ -23,15 +23,9 @@ class TopMovies::Scraper
       doc.css(.table).each do |movies|
         rank = movies.css(".table .bold").text.strip
         rating = movies.css(".table .tMeterScore").text.strip
-        title 
-        no_reviews
-        url
-        
-        
-    
-    
-    
-    
+        title = movies.css(".table a").text.strip
+        url = "https://www.rottentomatoes.com" + movies.css(".table a").attribute("href").text.strip
+      end
       
   end
   
