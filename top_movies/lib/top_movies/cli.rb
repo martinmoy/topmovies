@@ -19,13 +19,11 @@ class TopMovies::CLI
     @input = gets.strip.to_i
       if @input.to_i > 0 && @input.to_i <= @genres.length
         puts "Here is the list of the Top 100 Movie for #{@genres[@input - 1].name} Genre"
+        puts "#{@genres[@input - 1].url}"
     else
-      puts "Please input the number again"
+      puts "Please input a number from 1 to #{@genres.size}"
     end
   end
-  
-  
-  
   
   
   

@@ -22,7 +22,7 @@ class TopMovies::Scraper
         rating = movies.css(".tMeterScore").text.strip
         title = movies.css("a").text.strip
         url = "https://www.rottentomatoes.com" + movies.css("a").attribute("href").value
-        TopMovies::Movies.new(title, url, rank, rating)
+        TopMovies::Movies.new(title: title, url: url, rank: rank, rating: rating)
       end
   
  end
