@@ -7,7 +7,6 @@ class TopMovies::CLI
     display_instruction
     scrape_movies
     display_movies
-  
   end
   
   def display_introduction
@@ -19,7 +18,7 @@ class TopMovies::CLI
     puts "Please input the number for the genre you want to view."
     @input = gets.strip.to_i
       if @input.to_i > 0 && @input.to_i <= @genres.length
-        puts "#{@genres[@input - 1]}"
+        puts "Here is the list of the Top 100 Movie for #{@genres[@input - 1].name} Genre"
     else
       puts "Please input the number again"
     end
@@ -47,6 +46,7 @@ class TopMovies::CLI
   end
   
   def display_movies
+    
     
   end
   

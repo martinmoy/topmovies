@@ -13,14 +13,13 @@ class TopMovies::Genres
   def self.all 
     TopMovies::Scraper.scrape_genre if @@genres.empty?
     @@genres
-   
   end
   
   def save
     @@genres << self
+    
   end
   
   
-  
-  
+
 end

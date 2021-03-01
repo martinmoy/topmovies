@@ -9,16 +9,19 @@ class TopMovies::Scraper
         name = genres.css("a").text.strip
         url = "https://www.rottentomatoes.com" + genres.css("a").attribute("href").value
         TopMovies::Genres.new(name, url)
+        
     end
   end
   
   def self.scrape_movies
-      doc = Nokogiri::HTML(open(TopMovies::Genres.url))
+      url = "https://www.rottentomatoes.com/top/bestofrt/top_100_mystery__suspense_movies/"
+      doc = Nokogiri::HTML(open(url))
+      
       doc.css(".table").each do |movies|
-        rank = movies.css(".table .bold").text.strip
-        rating = movies.css(".table .tMeterScore").text.strip
-        title = movies.css(".table a").text.strip
-        url = "https://www.rottentomatoes.com" + movies.css(".table a").attribute("href").text.strip
+        rank = movies.css(".bold").text.strip
+        rating = movies.css(".tMeterScore").text.strip
+        title = movies.css("a").text.strip
+        url = "https://www.rottentomatoes.com" + movies.css("a").attribute("href").value
         TopMovies::Movies.new(title, url, rank, rating)
       end
   
