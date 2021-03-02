@@ -1,4 +1,4 @@
-class TopMovies::Genres
+class TopMovies::Genre
   attr_accessor :name, :url
   
   @@genres =[]
@@ -6,6 +6,7 @@ class TopMovies::Genres
   def initialize (name=nil, url=nil )
     @name = name
     @url = url
+    @movies=[]
     save
   end 
   
@@ -15,9 +16,11 @@ class TopMovies::Genres
     @@genres
   end
   
+  def self.get_movies
+    TopMovies::Movie.scrape_movies(self) if @movie.empty?
+  
   def save
     @@genres << self
-    
   end
   
   

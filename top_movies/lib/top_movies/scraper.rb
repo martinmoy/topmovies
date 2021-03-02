@@ -13,8 +13,8 @@ class TopMovies::Scraper
     end
   end
   
-  def self.scrape_movies
-      link = "https://www.rottentomatoes.com/top/bestofrt/top_100_mystery__suspense_movies/"
+  def self.scrape_movies(genre)
+      
       doc = Nokogiri::HTML(open(link))
       doc.css(".table").search('tr').each do |movies|
         rank = movies.css(".bold").text.strip.split(".")

@@ -19,18 +19,15 @@ class TopMovies::CLI
     @input = gets.strip.to_i
       if @input.to_i > 0 && @input.to_i <= @genres.length
         puts "Here is the list of the Top 100 Movie for #{@genres[@input - 1].name} Genre"
-        puts "#{@genres[@input - 1].url}"
+        scrape_movies(@input)
     else
       puts "Please input a number from 1 to #{@genres.size}"
     end
   end
   
   
-  
-  
-  
   def scrape_genres
-    @genres = TopMovies::Genres.all
+    @genres = TopMovies::Genre.all
   end
   
   def display_genres
@@ -39,7 +36,9 @@ class TopMovies::CLI
     end
   end
   
-  def scrape_movies
+  def scrape_movies(input)
+    link = "#{@genres[input - 1].url}"
+    puts link
     @movies = TopMovies::Movie.all
   end
   
