@@ -20,7 +20,7 @@ class TopMovies::Scraper
       doc.css(".table").each do |movies|
         rank = movies.css(".bold").text.split(".")
         rating = movies.css(".tMeterScore").text.split(" ").join("")
-        title = movies.css("a").text.strip
+        title = movies.css("a").text.split("\n")
         url = "https://www.rottentomatoes.com" + movies.css("a").attribute("href").value
         binding.pry
         TopMovies::Movies.new(title: title, url: url, rank: rank, rating: rating)
@@ -34,5 +34,6 @@ class TopMovies::Scraper
   
   
 end
+
 
 
