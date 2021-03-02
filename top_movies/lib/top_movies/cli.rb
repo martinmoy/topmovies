@@ -45,10 +45,14 @@ class TopMovies::CLI
   
   def display_movies
     TopMovies::Movie.all.each do |movie|
-      puts "Rank: #{movie.rank}"
-      puts "Title: #{movie.title}"
-      puts "Rating: #{movie.rating}"
-      puts "Url: #{movie.url}"
+      if movie.title != ""
+        puts "Rank: #{movie.rank}"
+        puts "Title: #{movie.title}"
+        puts "Rating: #{movie.rating}"
+        puts "Url: #{movie.url}"
+        puts " "
+        puts " "
+      end
     end
     
   end
