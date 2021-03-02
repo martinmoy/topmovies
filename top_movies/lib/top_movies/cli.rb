@@ -40,11 +40,16 @@ class TopMovies::CLI
   end
   
   def scrape_movies
-    @movies = TopMovies::Movies.all
+    @movies = TopMovies::Movie.all
   end
   
   def display_movies
-    
+    TopMovies::Movie.all.each do |movie|
+      puts "Rank: #{movie.rank}"
+      puts "Title: #{movie.title}"
+      puts "Rating: #{movie.rating}"
+      puts "Url: #{movie.url}"
+    end
     
   end
   

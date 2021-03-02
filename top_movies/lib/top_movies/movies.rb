@@ -1,4 +1,4 @@
-class TopMovies::Movies
+class TopMovies::Movie
   attr_accessor :title, :url, :rank, :rating
   @@movies = []
   

@@ -17,14 +17,13 @@ class TopMovies::Scraper
       url = "https://www.rottentomatoes.com/top/bestofrt/top_100_mystery__suspense_movies/"
       doc = Nokogiri::HTML(open(url))
       
-      doc.css(".table").each do |movies|
-        rank = movies.css(".bold").text.split(".")
-        rating = movies.css(".tMeterScore").text.split(" ").join("")
-        title = movies.css("a").text.strip.split("\n")
-        url = movies.css("a").attribute("href").text
+      doc.css(".table").search('tr').each do |movies|
+        rank = movies.css(".bold")
+        rating = movies.css(".tMeterScore")
+        title = movies.css("a")
+        url = movies.css("a").attribute("href")
+        TopMovies::Movie.new(title, url, rank, rating)
        
-        TopMovies::Movies.new(title, url, rank, rating)
-         binding.pry
       end
   
  end
