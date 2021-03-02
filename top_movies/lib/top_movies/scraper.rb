@@ -18,9 +18,9 @@ class TopMovies::Scraper
       doc = Nokogiri::HTML(open(url))
       
       doc.css(".table").search('tr').each do |movies|
-        rank = movies.css(".bold")
-        rating = movies.css(".tMeterScore")
-        title = movies.css("a")
+        rank = movies.css(".bold").text.split(".")
+        title = movies.css("a").text.strip
+        rating = movies.css(".tMeterScore").text
         url = movies.css("a").attribute("href")
         TopMovies::Movie.new(title, url, rank, rating)
        
