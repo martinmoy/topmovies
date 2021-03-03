@@ -2,7 +2,9 @@ class TopMovies::Cli
   
   def call
     introduction
-    
+    get_genre
+    list_genre
+    select_genre
   end
   
   def introduction 
@@ -13,7 +15,16 @@ class TopMovies::Cli
     puts " "
   end
   
-  def 
+  def get_genre
+    @genre = ["A", "B", "C", 'D']
+  end
+  
+  def list_genre
+    @genres.each.with_index(1) do |genres, index|
+    puts "#{index}." "#{genres.name}"
+  end
+  
+  def select_genre
   end
 
 end
