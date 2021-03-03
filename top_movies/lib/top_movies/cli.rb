@@ -25,14 +25,17 @@ class TopMovies::Cli
   
   def list_genre
     @genres.each.with_index(1) do |genres, index|
-      puts "#{index}." "#{genres}"
+      puts "#{index}." "#{genres.name}"
+      @genres_url = "https://www.rottentomatoes.com#{genres.url}"
+      puts " "
     end
   end
   
   def select_genre
       chosen_genre = gets.strip.to_i
       if chosen_genre.to_i > 0 && chosen_genre.to_i <= @genres.length
-        puts "Here is the list of the Top 100 Movie for #{@genres[chosen_genre - 1]}"
+        puts "Here is the list of the Top 100 Movie for #{@genres[chosen_genre - 1].name}"
+        puts "#{@genres_url}"
         puts "Please input the number for the movie you learn more about."
       else
         puts "Please input a number from 1 to #{@genres.size}"
