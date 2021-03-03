@@ -27,7 +27,7 @@ class TopMovies::CLI
   
   
   def scrape_genres
-    @genres = TopMovies::Genre.all
+    @genres = TopMovies::Genres.all
   end
   
   def display_genres

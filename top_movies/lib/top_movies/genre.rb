@@ -1,4 +1,4 @@
-class TopMovies::Genre
+class TopMovies::Genres
   attr_accessor :name, :url
   
   @@genres =[]
@@ -18,6 +18,7 @@ class TopMovies::Genre
   
   def self.get_movies
     TopMovies::Movie.scrape_movies(self) if @movie.empty?
+  end
   
   def save
     @@genres << self
