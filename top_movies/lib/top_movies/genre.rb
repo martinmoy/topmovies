@@ -1,6 +1,6 @@
 class TopMovies::Genre
   attr_accessor :name, :movies 
-  @@genres =[]
+  @@genres =["A","B","C","D"]
   
   def initialize(name)
     @name = name
@@ -13,6 +13,9 @@ class TopMovies::Genre
   
   def self.all 
     @@genres
+  end
+  
+  def get_movies
   end
   
 end

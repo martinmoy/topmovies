@@ -20,7 +20,7 @@ class TopMovies::Cli
   end
   
   def get_genre
-    @genres = ["A", "B", "C", 'D']
+    @genres = TopMovies::Genre.all
   end
   
   def list_genre
