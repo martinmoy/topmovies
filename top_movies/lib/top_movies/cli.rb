@@ -5,6 +5,8 @@ class TopMovies::Cli
     get_genre
     list_genre
     select_genre
+    get_movie
+    list_movie
   end
   
   def introduction 
@@ -31,6 +33,15 @@ class TopMovies::Cli
         puts "Here is the list of the Top 100 Movie for #{@genres[chosen_genre - 1]}"
       end
   end
+  
+  def get_movie
+    @movies = ["13", "14", "15", "16"]
+  end
+  
+  def list_movie
+    
+  end
+
   
   
 
