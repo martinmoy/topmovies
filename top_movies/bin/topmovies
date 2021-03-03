@@ -2,4 +2,4 @@
 
 require_relative '../lib/top_movies'
 
-TopMovies::CLI.new.call
+TopMovies::Cli.new.call
