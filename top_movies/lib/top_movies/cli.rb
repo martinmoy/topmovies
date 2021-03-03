@@ -8,6 +8,8 @@ class TopMovies::Cli
     get_movie
     list_movie
     select_movie
+    get_detail
+    list_detail
   end
   
   def introduction 
@@ -58,6 +60,16 @@ class TopMovies::Cli
        select_movie
     end
   end
+  
+  def get_info
+    @info = ["Summary", "Cast", "url"]
+  end
+  
+  
+  def list_detail
+    puts "Summary"
+  end
+  
   
   
 
