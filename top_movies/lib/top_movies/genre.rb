@@ -1,6 +1,6 @@
 class TopMovies::Genre
   attr_accessor :name, :movies 
-  @@genres =["A","B","C","D"]
+  @@genres =[]
   
   def initialize(name)
     @name = name
@@ -12,6 +12,7 @@ class TopMovies::Genre
   end
   
   def self.all 
+    TopMovies::Scraper.scrape_genre if @@genres.empty?
     @@genres
   end
   
