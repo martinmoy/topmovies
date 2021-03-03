@@ -8,8 +8,7 @@ class TopMovies::Cli
     get_movie
     list_movie
     select_movie
-    get_detail
-    list_detail
+  
   end
   
   def introduction 
@@ -54,7 +53,8 @@ class TopMovies::Cli
   def select_movie
     chosen_movie = gets.strip.to_i
     if chosen_movie.to_i > 0 && chosen_movie.to_i <=@movies.length
-      puts " bababalala"
+      get_info
+      list_info
     else
        puts "Please input a number from 1 to #{@movies.size}"
        select_movie
@@ -62,18 +62,18 @@ class TopMovies::Cli
   end
   
   def get_info
-    @info = ["Summary", "Cast", "url"]
+    @info = ["After the death of his father, T'Challa returns home to the African nation of Wakanda to take his rightful place as king. When a powerful enemy suddenly reappears, T'Challa's mettle as king -- and as Black Panther -- gets tested when he's drawn into a conflict that puts the fate of Wakanda and the entire world at risk. Faced with treachery and danger, the young king must rally his allies and release the full power of Black Panther to defeat his foes and secure the safety of his people.",
+    "Zac Efron", "url"]
   end
   
   
-  def list_detail
-    puts "Summary"
+  def list_info
+    puts "Summary #{@info[0]}"
+    puts "Cast #{@info[1]}"
+    puts "#{@info[3]}"
   end
-  
-  
   
 
-  
   
 
 end
