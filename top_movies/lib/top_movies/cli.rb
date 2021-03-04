@@ -46,7 +46,7 @@ class TopMovies::Cli
     genre = @genres[chosen_genre - 1]
     genre.get_movies
     puts "Here is the list of the Top 100 Movie for #{genre.name}"
-    puts "Please input the number for the movie you learn more about."
+    puts "Please input the rank number to view more information."
     genre.movies.each do  |movie|
       if movie.title != ""
         puts "Rank: #{movie.rank}"
