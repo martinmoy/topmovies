@@ -5,7 +5,7 @@ class TopMovies::Genre
   def initialize(name, url)
     @name = name
     @url = url
-    @movie = []
+    @movies = []
     save
   end 
   
@@ -19,7 +19,7 @@ class TopMovies::Genre
   end
   
   def get_movies
-    TopMovies::Scraper.scrape_movie(self) if @movie.empty?
+    TopMovies::Scraper.scrape_movie(self) if @movies.empty?
   end
   
 end
