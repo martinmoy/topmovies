@@ -20,7 +20,7 @@ class TopMovies::Movie
   end
   
   def save 
-    @@all << self
+    @@movies << self
   end
   
   
