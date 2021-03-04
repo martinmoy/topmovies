@@ -52,9 +52,10 @@ class TopMovies::Cli
         puts "Rank: #{movie.rank}"
         puts "Title: #{movie.title}"
         puts "Rating: #{movie.rating}"
-        puts "Url: #{movie.url}"
+        puts "Url: https://www.rottentomatoes.com#{movie.url}"
         puts " "
         puts " "
+        binding.pry
       end
     end
     
@@ -66,6 +67,7 @@ class TopMovies::Cli
     chosen_movie = gets.strip.to_i
       get_info
       list_info
+    
       
    
   end
