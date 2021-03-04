@@ -14,12 +14,13 @@ class TopMovies::Scraper
     def self.scrape_movie(genre)
       url = "https://www.rottentomatoes.com#{genre.url}"
       doc = Nokogiri::HTML(open(url))
-      doc.css(".table").search('tr').each do |movies|
+      ranking = doc.css(".table").search('tr')
+      ranking.each do |movies|
         rank = movies.css(".bold").text.strip.split(".")
         title = movies.css("a").text.strip
         rating = movies.css(".tMeterScore").text.strip
         url = movies.css("a").attribute('href')
-        TopMovies::Movie.new(title, url, rank, rating)
+        TopMovies::Movie.new(title, url, rank, rating,genre)
       end
     end
   
