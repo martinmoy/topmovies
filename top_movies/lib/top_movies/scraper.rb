@@ -23,6 +23,13 @@ class TopMovies::Scraper
         TopMovies::Movie.new(title, url, rank, rating,genre)
       end
     end
+    
+    
+    def self.scrape_movie_info(movie)
+      url ="https://www.rottentomatoes.com#{movie.url}"
+      doc = Nokogiri::HTML(open(url))
+      
+    end
   
   
   
