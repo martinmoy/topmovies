@@ -1,6 +1,5 @@
 class TopMovies::Scraper
       
-    
     def self.scrape_genre
         doc = Nokogiri::HTML(open("https://www.rottentomatoes.com/top/bestofrt/"))
         doc.css("ul.dropdown-menu li").each do |genres|
@@ -9,8 +8,7 @@ class TopMovies::Scraper
         TopMovies::Genre.new(name, url)
       end
     end
-    
-    
+      
     def self.scrape_movie(genre)
       url = "https://www.rottentomatoes.com#{genre.url}"
       doc = Nokogiri::HTML(open(url))
@@ -24,17 +22,10 @@ class TopMovies::Scraper
       end
     end
     
-    
     def self.scrape_movie_info(movie)
       url ="https://www.rottentomatoes.com#{movie.url}"
       doc = Nokogiri::HTML(open(url))
-      
     end
   
-  
-  
-  
-  
-  
-  
+
 end

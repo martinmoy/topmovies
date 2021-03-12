@@ -6,7 +6,6 @@ class TopMovies::Cli
     list_genre
     select_genre
     select_movie
-  
   end
   
   def introduction 
@@ -29,7 +28,7 @@ class TopMovies::Cli
   end
   
   def select_genre
-      chosen_genre = gets.strip.to_i
+    chosen_genre = gets.strip.to_i
       if valid_input(chosen_genre, @genres)
         list_movie(chosen_genre)
       else
@@ -47,6 +46,7 @@ class TopMovies::Cli
     genre.get_movies
     puts "Here is the list of the Top 100 Movie for #{genre.name}"
     puts "Please input the rank number to view more information."
+
     genre.movies.each do  |movie|
       if movie.title != ""
         puts "Rank: #{movie.rank}"
@@ -58,18 +58,13 @@ class TopMovies::Cli
     
       end
     end
-    
-   
-  
+
   end
   
   def select_movie
     chosen_movie = gets.strip.to_i
       get_info
       list_info
-    
-      
-   
   end
   
   def get_info
@@ -77,14 +72,10 @@ class TopMovies::Cli
     "Amber is silly", "Amber is crazy" ]
   end
   
-  
   def list_info
     puts "Summary #{@info[0]}"
     puts "Cast #{@info[1]}"
     puts "Cat :#{@info[2]}"
-  end
+  end 
   
-
-  
-
 end
